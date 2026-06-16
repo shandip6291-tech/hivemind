@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body { background: #1a1a1a; color: #fff; font-family: sans-serif; display: flex; justify-content: center; padding: 20px; }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            width: 100%;
+            max-width: 800px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+        }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { padding: 15px; text-align: left; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+        .waterdrop-btn {
+            background: rgba(0, 242, 255, 0.2);
+            border: 1px solid #00f2ff;
+            color: #00f2ff;
+            padding: 10px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 0.3s;
+            overflow: hidden;
+            position: relative;
+        }
+        .waterdrop-btn:hover { background: #00f2ff; color: #000; box-shadow: 0 0 20px #00f2ff; }
+    </style>
+</head>
+<body>
+
+<div class="glass-panel">
+    <h2>Client Enquiries</h2>
+    <table>
+        <thead>
+            <tr><th>Name</th><th>Submission Time</th><th>Details</th></tr>
+        </thead>
+        <tbody id="enquiryTable">
+            <!-- Data yahan dynamic aayega -->
+        </tbody>
+    </table>
+    <button class="waterdrop-btn" onclick="location.reload()">Refresh Data</button>
+</div>
+
+<script>
+    // Example data: Yahan tumhara fetched data show hoga
+    const enquiries = [
+        { name: "Rahul", time: "12:00 PM", details: "Bot Setup" },
+        { name: "Amit", time: "12:15 PM", details: "UI Customization" }
+    ];
+    const table = document.getElementById('enquiryTable');
+    enquiries.forEach(e => {
+        table.innerHTML += `<tr><td>${e.name}</td><td>${e.time}</td><td>${e.details}</td></tr>`;
+    });
+</script>
+</body>
+</html>
